@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="orb orb-c" aria-hidden="true"></div>
+
+  <main class="game-shell">
+    <header class="hero">
+      <p class="eyebrow">Cosmic Memory</p>
+      <h1>Nebula Match</h1>
+      <p class="tagline">Flip the stars. Find every pair. Beat your best.</p>
+    </header>
+
+    <section class="hud" aria-label="Game stats">
+      <div class="stat">
+        <span class="stat-label">Moves</span>
+        <span class="stat-value js-moves">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Time</span>
+        <span class="stat-value js-time">0:00</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Pairs</span>
+        <span class="stat-value js-pairs">0/8</span>
+      </div>
+      <div class="stat accent">
+        <span class="stat-label">Best</span>
+        <span class="stat-value js-best">--</span>
+      </div>
+    </section>
+
+    <p class="status js-status">Find all eight constellations</p>
+
+    <div class="board js-board" role="grid" aria-label="Memory board"></div>
+
+    <div class="controls">
+      <button class="btn primary js-reset-button" type="button">New Game</button>
+      <button class="btn ghost js-clear-score-button" type="button">Clear Best</button>
+      <div class="sound-dock" role="group" aria-label="Sound controls">
+        <button class="btn icon js-sound-button" type="button" aria-pressed="true" aria-label="Mute sound">
+          <span class="sound-glyph js-sound-glyph" aria-hidden="true">🔊</span>
+          <span class="js-sound-label">Sound On</span>
+        </button>
+        <label class="volume-control">
+          <span class="visually-hidden">Volume</span>
+          <input class="js-volume" type="range" min="0" max="100" step="1" value="80" aria-valuetext="80 percent">
+          <span class="volume-value js-volume-value">80%</span>
+        </label>
+      </div>
+    </div>
+  </main>
+
+  <div class="win-overlay js-win-overlay" hidden aria-hidden="true">
+    <div class="win-card" role="dialog" aria-labelledby="win-title" aria-modal="true">
+      <p class="win-kicker">Constellation complete</p>
+      <h2 id="win-title" class="js-win-title">You won</h2>
+      <p class="win-copy js-win-copy"></p>
+      <button class="btn primary js-play-again" type="button">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
